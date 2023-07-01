@@ -1,0 +1,53 @@
+#include <iostream>
+
+// Tamanho do tabuleiro
+const int TAMANHO_TABULEIRO = 8;
+
+// Representação das peças
+const char VAZIO = ' ';
+const char PECA_1 = 'O';
+const char PECA_2 = 'X';
+
+// Classe que representa o tabuleiro do jogo
+class Tabuleiro {
+private:
+    char tabuleiro[TAMANHO_TABULEIRO][TAMANHO_TABULEIRO];
+
+public:
+    Tabuleiro() {
+        // Inicializa o tabuleiro vazio
+        for (int i = 0; i < TAMANHO_TABULEIRO; i++) {
+            for (int j = 0; j < TAMANHO_TABULEIRO; j++) {
+                tabuleiro[i][j] = VAZIO;
+            }
+        }
+    }
+
+    void exibir() {
+        // Exibe o tabuleiro atual
+        for (int i = 0; i < TAMANHO_TABULEIRO; i++) {
+            for (int j = 0; j < TAMANHO_TABULEIRO; j++) {
+                std::cout << tabuleiro[i][j] << " ";
+            }
+            std::cout << std::endl;
+        }
+    }
+
+    void colocarPeca(int linha, int coluna, char peca) {
+        // Coloca uma peça no tabuleiro
+        tabuleiro[linha][coluna] = peca;
+    }
+};
+
+int main() {
+    Tabuleiro tabuleiro;
+
+    // Coloca algumas peças no tabuleiro para exemplo
+    tabuleiro.colocarPeca(3, 4, PECA_1);
+    tabuleiro.colocarPeca(4, 3, PECA_2);
+
+    // Exibe o tabuleiro
+    tabuleiro.exibir();
+
+    return 0;
+}
